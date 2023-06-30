@@ -57,7 +57,7 @@ export function PageInitial(){
                 <div class="phraseSecondScreenSearch">
 
                         <h3>
-                            "Somente aqueles que ja dessistiram de viver acham que os sonhos são impossíveis... Para nós os sonhos jamais serão impossíveis"
+                            "Somente aqueles que ja desistiram de viver acham que os sonhos são impossíveis... Para nós os sonhos jamais serão impossíveis"
                         </h3>
 
                         <h4>- Hyoga de Cisne</h4>
