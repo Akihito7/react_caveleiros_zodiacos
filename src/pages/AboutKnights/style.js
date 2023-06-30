@@ -26,13 +26,19 @@ main{
     align-items: center;
     justify-content: center;
 }
-ul{
+.about ul{
     list-style: none;
     font-size: 1.5rem;
     color: white;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    color: black;
+    line-height: 40px;
+}
+span{
+    color: white;
+    
 }
 
 p{
