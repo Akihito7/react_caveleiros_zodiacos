@@ -2,62 +2,104 @@ import styled from "@emotion/styled";
 import { COLORS } from "../../theme/COLORS";
 
 export const Container = styled.div`
-
+font-family: 'Anton', sans-serif;
 width: 100vw;
 height: 100vh;
-
-grid-template-rows: 10vh 90vh;
-grid-template-areas: "header main";
-overflow: hidden;
-
->main{
+main{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+}
+.about{
+    padding: 2rem;
+    width: 50%;
+    height: 90vh;
+    background-color: #fc7f03;
+    overflow: auto;
+}
+.photo{
+    padding: 2rem 0;
+    width: 50%;
+    height: 90vh;
     background-color: black;
-    font-family: 'Anton', sans-serif;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: "about photo";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ul{
+    list-style: none;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-    >.about{
-        height: 100vh;
+p{
+    font-size: 1.3rem;
+}
+img{
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+}
+#iconeMenu{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    position: absolute;
+
+    #iconeMenu{
+        cursor: pointer;
+        position: absolute;
+        display: flex;
+        font-size: 30px;
         color: white;
-        background-color: ${COLORS.COLOR_TEXT};
-        grid-area: about;
-        overflow-y: auto;
+        left: 5%;
+        top: 5%;
+    }
+    .open{
+        transform: translateX(100%);
+    }
+    #headerComponente{
+        
+        position: absolute;
+        transition:  transform 300ms ease-in-out;
+        translate: -100%;
+        align-items: center;
+        justify-content: space-around;
+        height: 100vh;
+        width: 180px;
+        display: flex;
+        flex-direction: column;
 
-        padding: 2rem 2rem 5rem 2rem;
-        border-radius: 0 1rem 1rem 0;
-
-        >ul{
-            margin-top: 2rem;
-            list-style: none;
+        >h1{
+            height: 10%;
             font-size: 2rem;
-            margin-bottom: 2rem;
-
-            li{
-                margin-bottom: 1.8rem;
-                
-                text-align: justify;
-            }
-
-            span{
-                font-size: 1.8rem;
-            }
+        }
+        ul{
+            height: 50%;
+            font-size: 1.5rem;
         }
     }
-    >.photo{
-        height: 100vh;
-        grid-area: photo;
-        background-color: black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
 
-        img{
-            width: 80%;
-            height: 100%;
-            object-fit: cover;
-        }
+    main{
+       background-color: black;
+       flex-direction: column;
+       width: 100vw;
+       min-height: 100vh;
+       gap: 2rem;
+       overflow: auto;
+    }
+    .about{
+        width: 100vw;
+        min-height: 100vh;
+       overflow: auto;
+    }
+    .photo{
+        padding-top: 5rem;
+        width: 100vw;
     }
 }
 

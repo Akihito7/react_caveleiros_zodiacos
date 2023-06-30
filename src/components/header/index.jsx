@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom"
 export function Header(){
 
     const navigate = useNavigate();
+   
 
     return (
 
-        <Container>
+        <Container id="headerComponente">
            <h1>Santuario dos Guerrerios</h1>
      
             <ul>

@@ -1,12 +1,17 @@
 import { Container } from "./style";
 import { Header } from '../../components/header';
 import { api } from '../../axios';
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export function AboutKnights(){
+export function AboutKnights(){ 
 
+    const menuHeader = document.getElementById("iconeMenu");
+    const headerComponente = document.getElementById("headerComponente");
+
+    const [mounted,setMounted] = useState(false);
+    
     const params = useParams();
 
     const [ infoCavaleiros, setInfoCavaleiros ] = useState({});
@@ -14,32 +19,54 @@ export function AboutKnights(){
     const img = `${api.defaults.baseURL}/files/${infoCavaleiros.image}`
     
     async function takeInfos(){
-
+        
         const response = await api.get(`/cavaleiros/${params.name}`);
 
-        console.log(response.data);
-
         const infoKnights = response.data;
-
-        console.log(infoKnights);
 
         setInfoCavaleiros(infoKnights);
 
     }
 
-  
-   useEffect(()=>{
+ 
 
-        takeInfos();
+    function menuToggle() {
+       if(headerComponente.classList.contains("open")){
+        headerComponente.classList.remove("open");
+        menuHeader.innerHTML = "menu"
+       }
+       else{
+        headerComponente.classList.add("open");
+        menuHeader.innerHTML = "close"
+       }
+
+    }
+    
+    useEffect( () => {   
         
-   },[])
+        if(mounted){
 
+            menuHeader.addEventListener("click", menuToggle);
+            
+            takeInfos();  
+        }
+        else{
+            setMounted(true);
+        }
+},[mounted])
+      
     return(
 
         <Container>
-            <Header/>
+            <Header></Header>
 
             <main>
+            <span id="iconeMenu"className ="material-symbols-outlined">
+                       menu
+                     </span>
+                <div className="photo">
+                    <img src={img} alt="imagem do afrodite de peixes" />
+                </div>
                 <div className="about">
                     <ul>
                         <li>Nome: <span>{infoCavaleiros.nome}</span></li>
@@ -59,9 +86,6 @@ export function AboutKnights(){
 
                 </div>
                 
-                <div className="photo">
-                    <img src={img} alt="imagem do afrodite de peixes" />
-                </div>
             </main>
         </Container>
 

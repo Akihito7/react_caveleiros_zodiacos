@@ -4,7 +4,7 @@ import {COLORS} from '../../theme/COLORS'
 export const Container = styled.div`
 
 grid-area: header;
-width: 100%;
+width: 100vw;
 height: 10vh;
 
 color:white;
@@ -13,8 +13,9 @@ background-color: ${COLORS.BACKGROUND};
 font-family: 'Anton', sans-serif;
 display: flex;
 align-items: center;
-padding: 0 16rem;
-justify-content: space-between;
+padding: 0 2rem;
+
+justify-content: space-evenly;
 
 >h1{
     color: ${COLORS.COLOR_TEXT};
@@ -25,10 +26,10 @@ justify-content: space-between;
     list-style: none;
    display: flex;
    flex-direction: row;
-   gap: 3rem;
+   gap: 2rem;
    >li{
        color:white;
-       font-size: 2.5rem;
+       font-size: 1.8rem;
        cursor: pointer;
        transition: 300ms;
    
@@ -37,5 +38,7 @@ justify-content: space-between;
        transform: scale(1.1);
    }
 }
+
+
 
 `
