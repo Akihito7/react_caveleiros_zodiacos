@@ -48,7 +48,7 @@ img{
 }
 
 @media screen and (max-width: 768px) {
-    position: absolute;
+    position: relative;
 
     #iconeMenu{
         cursor: pointer;
@@ -94,12 +94,21 @@ img{
     }
     .about{
         width: 100vw;
-        min-height: 100vh;
-       overflow: auto;
+        min-height: 50vh;
+        overflow: auto;
     }
     .photo{
         padding-top: 5rem;
         width: 100vw;
+        height: 50vh;
+        //background-color: green;
+
+        
+    }
+    img{
+        object-fit: cover;
+        width: 50%;
+        height: 100%;
     }
 }
 
