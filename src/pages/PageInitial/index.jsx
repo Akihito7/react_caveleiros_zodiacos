@@ -1,11 +1,10 @@
-
+import { api } from '../../axios';
 import { Container } from './style';
 import { Header } from '../../components/header';
 import img from '../../imagens/lupa.png'
 import img2 from '../../imagens/imagemCavaleiros.jpeg'
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
 
 export function PageInitial(){
 
@@ -13,7 +12,22 @@ export function PageInitial(){
 
     const [ name,setName ] = useState();
 
-    function buscarInfo(name){
+    const labelInput = useRef(null);
+
+    
+
+    async function buscarInfo(name){
+         
+        const response = await api.get(`/cavaleiros/${name}`);
+
+        if(!response.data){
+             
+            labelInput.current.value = "";
+            labelInput.current.focus();
+
+            return alert("cavaleiro de ouro não encontrado");
+        }
+
         navigate(`/cavaleiros/${name}`);
     }
 
@@ -44,7 +58,7 @@ export function PageInitial(){
 
                 <div className="searchButtonSecondScreen"> 
 
-                <input onChange={(event)=> setName(event.target.value)} id="pesquiseAqui"type="text" placeholder="Pesquise Aqui"/>
+                <input ref={labelInput} onChange={(event)=> setName(event.target.value)} id="pesquiseAqui" type="text" placeholder="Pesquise Aqui"/>
 
                 <button class="buttonSearch">
                     <img class="ney" src={img}  alt="imagem de uma lupa na cor laranja" 

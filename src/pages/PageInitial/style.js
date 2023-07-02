@@ -44,9 +44,12 @@ main{
     align-items: center;
     color: white;
     padding: 0 10rem;
+    text-align: center;
+    gap: 1rem;
 }
-h1{
-    font-size: 4rem;
+.infoFirstScreen h1{
+    font-size: 3.5rem;
+    
 }
 h2{
     font-size: 2.5rem;
@@ -123,6 +126,7 @@ a{
     outline: none;
     padding:  0 2rem ;
 }
+
 #pesquiseAqui::placeholder{
     padding: 10%;
     font-family: 'Anton', sans-serif;
@@ -166,6 +170,13 @@ a{
     }
     .infoFirstScreen{
         font-size: 1rem
+    }
+    .infoFirstScreen h1{
+        font-size: 3rem
+    }
+    .infoFirstScreen h2{
+        font-size: 2rem;
+        //text-align: center;
     }
     main{
         display: flex;
